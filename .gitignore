@@ -44,7 +44,7 @@ out/
 Generated_Code/
 ServiceReferences/
 ServiceConfigurations/
-Migrations/
+
 
 ### Відкидаємо тимчасові файли та резервні копії ###
 *.tmp
