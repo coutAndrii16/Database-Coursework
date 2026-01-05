@@ -1,0 +1,313 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DormitoryManagementSystem.Models.AdminMessage" Collapsed="true">
+    <Position X="22" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAgAAAEAAECAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\AdminMessage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DormitoryManagementSystem.Models.ContactMessage">
+    <Position X="9.25" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAADAAAAAgAAAAAAACAAEAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ContactMessage.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="User" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DormitoryManagementSystem.Models.Dormitory">
+    <Position X="19.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQCAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Dormitory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DormitoryManagementSystem.Models.Faculty">
+    <Position X="9.25" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAICAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Faculty.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DormitoryManagementSystem.Models.Room">
+    <Position X="19.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAgAAAAAAAQAAAAAAQAAAEAEAAAgIAA=</HashCode>
+      <FileName>Models\Room.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Dormitory" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DormitoryManagementSystem.Models.DTO.RoomMateInfo" Collapsed="true">
+    <Position X="23.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAICAAIAAAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Models\RoomMateInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DormitoryManagementSystem.Models.RoomPlace">
+    <Position X="19.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAACQAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\RoomPlace.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Room" />
+      <Property Name="Student" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DormitoryManagementSystem.Models.ShowerReservation">
+    <Position X="21.25" Y="11.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAADQAAAAAAAAAAAACAAAAgAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Models\ShowerReservation.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Slot" />
+      <Property Name="User" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DormitoryManagementSystem.Models.ShowerSlot">
+    <Position X="24.25" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAADAEAAAAAAAIAAgAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ShowerSlot.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DormitoryManagementSystem.Models.ShowerSlotWithReservation" Collapsed="true">
+    <Position X="21" Y="10" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Models\ShowerSlotWithReservation.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Slot" />
+      <Property Name="Reservation" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DormitoryManagementSystem.Models.UserInfo">
+    <Position X="15.25" Y="10.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>CBCiAEARAKAAAICAAIAAQAAACAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Models\UserInfo.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Faculty" />
+      <Property Name="RoomPlace" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DormitoryManagementSystem.ViewModels.LoginViewModel">
+    <Position X="19.25" Y="16" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAgAAARAAAAABAAAAAAAABAAgAAAQA=</HashCode>
+      <FileName>ViewModels\LoginViewModel.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_mainWindow" />
+      <Field Name="user" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DormitoryManagementSystem.ViewModels.ResidentViewModel">
+    <Position X="12.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAgAwAQAAIAAQAABCAIAAACAAIEIAwAAABAAAAA=</HashCode>
+      <FileName>ViewModels\ResidentViewModel.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_mainWindow" />
+      <Field Name="_user" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DormitoryManagementSystem.ViewModels.AdminViewModel">
+    <Position X="15.25" Y="16.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAAAAAEIBAAIAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\AdminViewModel.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_mainWindow" />
+      <Field Name="_currentUser" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DormitoryManagementSystem.MainWindow" Collapsed="true">
+    <Position X="10" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DormitoryManagementSystem.ViewModels.ResidentInfoViewModel">
+    <Position X="15.25" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAQAAACAAAIAAAAABQAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\ResidentInfoViewModel.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_mainWindow" />
+      <Field Name="_user" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DormitoryManagementSystem.ViewModels.AdminContactsViewModel">
+    <Position X="12.25" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAgACAEQIEABAAAAAAAAAAgEAEAAAQAAAAA=</HashCode>
+      <FileName>ViewModels\AdminContactsViewModel.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_mainWindow" />
+      <Field Name="_currentUser" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DormitoryManagementSystem.ViewModels.ShowerReservationViewModel">
+    <Position X="18.25" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EQAAABAAAIAAAAAAAAABICRAgABAAIAAAIAAEIAAAEA=</HashCode>
+      <FileName>ViewModels\ShowerReservationViewModel.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_mainWindow" />
+      <Field Name="_user" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DormitoryManagementSystem.ViewModels.SlotGroup" Collapsed="true">
+    <Position X="23.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAEAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\ShowerReservationViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DormitoryManagementSystem.ViewModels.ContactViewModel">
+    <Position X="7" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAgAAAAAABAAARAAABAAAAAAAAAIAIAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\ContactViewModel.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_mainWindow" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DormitoryManagementSystem.ViewModels.MyRoomViewModel">
+    <Position X="12.25" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAgAAAAAAAAAAABAAAAQAEAAIEIAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\MyRoomViewModel.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_mainWindow" />
+      <Field Name="_user" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DormitoryManagementSystem.Services.ZtuApiService">
+    <Position X="14" Y="19" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAgAAAAAAAAAABCAEAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\ZtuApiService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_httpClient" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DormitoryManagementSystem.Services.ShowerSlotGeneratorService">
+    <Position X="26" Y="19.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\ShowerSlotGeneratorService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_dbContext" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DormitoryManagementSystem.Services.DatabaseContext" Collapsed="true">
+    <Position X="23" Y="16.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BQAAACAAAQAAAAAAAAAAAAACEQAAAAIAIgAAAIAAAAA=</HashCode>
+      <FileName>Services\DatabaseContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DormitoryManagementSystem.Services.ShowerReservationService">
+    <Position X="26" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAgAAAAAAQAAAAAAAAAAAAAAAACAAAABACAAAAABA=</HashCode>
+      <FileName>Services\ShowerReservationService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_db" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DormitoryManagementSystem.Services.ShowerCleanupService" Collapsed="true">
+    <Position X="22" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\ShowerCleanupService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DormitoryManagementSystem.Services.RoomService">
+    <Position X="26" Y="16.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\RoomService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_db" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DormitoryManagementSystem.Services.PingService">
+    <Position X="26" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAAAAAAAAAEAAAAAAAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>Services\PingService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_ztuApi" />
+      <Field Name="_myApi" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DormitoryManagementSystem.Services.MyApiService">
+    <Position X="20" Y="19" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAgAAAAAAAAAABCAEAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\MyApiService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_httpClient" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DormitoryManagementSystem.Services.ContactService">
+    <Position X="23" Y="18" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAgAACAAAAAAAAAAAAAAAAAAEAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\ContactService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_db" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DormitoryManagementSystem.Services.AdminMessageService">
+    <Position X="23" Y="14.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\AdminMessageService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_db" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="System.Net.Http.HttpClient" Collapsed="true">
+    <Position X="17.5" Y="19" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Interface Name="DormitoryManagementSystem.Services.IApiService" Collapsed="true">
+    <Position X="26" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAgAAAAAAAAAAACAEAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\IApiService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
