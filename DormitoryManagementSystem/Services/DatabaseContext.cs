@@ -71,12 +71,23 @@ namespace DormitoryManagementSystem.Services
                 PlacesCount = 2,
                 DormitoryId = 1,
                 Comments = "Тестова кімната"
-            });
+            },
+                new Room
+                {
+                    Id = 2,
+                    Name = "11/1",
+                    Floor = 1,
+                    PlacesCount = 4,
+                    DormitoryId = 1,
+                    Comments = "Тестова кімната 2"
+                });
 
             // Місця
             modelBuilder.Entity<RoomPlace>().HasData(
                 new RoomPlace { Id = 1, RoomId = 1 },
-                new RoomPlace { Id = 2, RoomId = 1 }
+                new RoomPlace { Id = 2, RoomId = 1 },
+                new RoomPlace { Id = 3, RoomId = 2 },
+                new RoomPlace { Id = 4, RoomId = 2 }
             );
 
             // Адмін
@@ -130,7 +141,41 @@ namespace DormitoryManagementSystem.Services
                 FacultyId = 3,
                 RoomPlaceId = 2,
                 Gender = "Жіноча"
-            }
+            },
+            // Резидент3
+            new UserInfo
+                {
+                    Id = 4,
+                    FullName = "Тестова Резидентка3",
+                    Email = "resident3@student.ztu.edu.ua",
+                    PasswordHash = "resident3123",
+                    IsAdmin = false,
+                    IsLivingInDormitory = true,
+                    Group = "ІПЗ-25-0",
+                    Course = 1,
+                    PhoneNumber = "+380978987654",
+                    FormOfEducation = "Денна",
+                    FacultyId = 3,
+                    RoomPlaceId = 3,
+                    Gender = "Жіноча"
+                },
+            // Резидент4
+            new UserInfo
+                {
+                    Id = 5,
+                    FullName = "Тестова Резидентка4",
+                    Email = "resident4@student.ztu.edu.ua",
+                    PasswordHash = "resident4123",
+                    IsAdmin = false,
+                    IsLivingInDormitory = true,
+                    Group = "ІПЗ-25-0",
+                    Course = 1,
+                    PhoneNumber = "+380937945692",
+                    FormOfEducation = "Денна",
+                    FacultyId = 3,
+                    RoomPlaceId = 4,
+                    Gender = "Жіноча"
+                }
            );
             modelBuilder.Entity<AdminMessage>().HasData(
             new AdminMessage
