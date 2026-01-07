@@ -25,6 +25,7 @@ namespace DormitoryManagementSystem.Models
         public string? Gender { get; set; }
         public string? Benefits { get; set; } // Пільги
         public string? Notes { get; set; }
+        public bool? IsDeleted { get; set; }
         // Конструктор без параметрів (обов'язковий для EF або ініціалізації)
         public UserInfo() { }
     }
