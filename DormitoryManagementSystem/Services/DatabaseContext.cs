@@ -84,10 +84,10 @@ namespace DormitoryManagementSystem.Services
 
             // Місця
             modelBuilder.Entity<RoomPlace>().HasData(
-                new RoomPlace { Id = 1, RoomId = 1 },
-                new RoomPlace { Id = 2, RoomId = 1 },
-                new RoomPlace { Id = 3, RoomId = 2 },
-                new RoomPlace { Id = 4, RoomId = 2 }
+                new RoomPlace { Id = 1, RoomId = 1, PlaceNumber = 1},
+                new RoomPlace { Id = 2, RoomId = 1, PlaceNumber = 2},
+                new RoomPlace { Id = 3, RoomId = 2, PlaceNumber = 1},
+                new RoomPlace { Id = 4, RoomId = 2, PlaceNumber = 2}
             );
 
             // Адмін
