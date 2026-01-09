@@ -221,7 +221,7 @@ namespace DormitoryManagementSystem.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("PlaceNumber")
+                    b.Property<int?>("PlaceNumber")
                         .HasColumnType("int");
 
                     b.Property<int>("RoomId")
