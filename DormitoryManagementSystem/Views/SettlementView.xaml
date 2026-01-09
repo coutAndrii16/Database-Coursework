@@ -93,17 +93,13 @@
 
                     <!-- Курс -->
                     <TextBlock Text="Курс *" FontWeight="SemiBold" Margin="0,0,0,5"/>
-                    <ComboBox SelectedItem="{Binding Course}"
+                    <ComboBox ItemsSource="{Binding Courses}"
+                              SelectedItem="{Binding Course, Mode=TwoWay}"
                               Padding="8"
                               BorderBrush="#A3C294"
                               BorderThickness="1"
                               Margin="0,0,0,15">
-                        <ComboBoxItem Content="1"/>
-                        <ComboBoxItem Content="2"/>
-                        <ComboBoxItem Content="3"/>
-                        <ComboBoxItem Content="4"/>
-                        <ComboBoxItem Content="5"/>
-                        <ComboBoxItem Content="6"/>
+                        
                     </ComboBox>
 
                     <!-- Група -->

@@ -36,6 +36,8 @@ namespace DormitoryManagementSystem.ViewModels
         public ObservableCollection<Faculty> Faculties { get; } = new();
         public ObservableCollection<RoomDto> AvailableRooms { get; } = new();
         public ObservableCollection<RoomPlaceDto> AvailablePlaces { get; } = new();
+        public ObservableCollection<int> Courses { get; } = new() {1,2,3,4,5,6};
+
 
         public SettlementViewModel(MainWindow mainWindow, UserInfo currentUser, PasswordBox passwordBox)
         {
@@ -54,6 +56,11 @@ namespace DormitoryManagementSystem.ViewModels
             foreach (var f in faculties)
                 Faculties.Add(f);
 
+            // В LoadDataAsync() додай це ПЕРЕД LoadAvailableRoomsAsync():
+            var testRooms = await _db.Rooms.Include(r => r.Places).ToListAsync();
+            MessageBox.Show($"Всього кімнат: {testRooms.Count}\n" +
+                            $"Перша кімната: {testRooms.FirstOrDefault()?.Name}\n" +
+                            $"Місць у ній: {testRooms.FirstOrDefault()?.Places.Count}");
             // Завантажити кімнати з вільними місцями
             await LoadAvailableRoomsAsync();
         }
