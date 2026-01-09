@@ -56,11 +56,6 @@ namespace DormitoryManagementSystem.ViewModels
             foreach (var f in faculties)
                 Faculties.Add(f);
 
-            // В LoadDataAsync() додай це ПЕРЕД LoadAvailableRoomsAsync():
-            var testRooms = await _db.Rooms.Include(r => r.Places).ToListAsync();
-            MessageBox.Show($"Всього кімнат: {testRooms.Count}\n" +
-                            $"Перша кімната: {testRooms.FirstOrDefault()?.Name}\n" +
-                            $"Місць у ній: {testRooms.FirstOrDefault()?.Places.Count}");
             // Завантажити кімнати з вільними місцями
             await LoadAvailableRoomsAsync();
         }
