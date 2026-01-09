@@ -80,6 +80,15 @@ namespace DormitoryManagementSystem.Services
                     PlacesCount = 4,
                     DormitoryId = 1,
                     Comments = "Тестова кімната 2"
+                },
+                new Room
+                {
+                    Id = 3,
+                    Name = "11/2",
+                    Floor = 1,
+                    PlacesCount = 2,
+                    DormitoryId = 1,
+                    Comments = "Тестова кімната 3"
                 });
 
             // Місця
@@ -89,7 +98,9 @@ namespace DormitoryManagementSystem.Services
                 new RoomPlace { Id = 3, RoomId = 2, PlaceNumber = 1},
                 new RoomPlace { Id = 4, RoomId = 2, PlaceNumber = 2},
                 new RoomPlace { Id = 5, RoomId = 2},
-                new RoomPlace { Id = 6, RoomId = 2}
+                new RoomPlace { Id = 6, RoomId = 2},
+                new RoomPlace { Id = 7, RoomId = 3},
+                new RoomPlace { Id = 8, RoomId = 3}
             );
 
             // Адмін

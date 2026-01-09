@@ -215,7 +215,6 @@ namespace DormitoryManagementSystem.ViewModels
 
             MessageBox.Show($"Мешканця {FullName} успішно заселено!\nКімната: {SelectedRoom.Name}, місце №{newRoomNumber}");
 
-            Back();
         }
 
         [RelayCommand]
