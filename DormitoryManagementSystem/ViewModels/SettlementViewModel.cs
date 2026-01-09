@@ -64,15 +64,15 @@ namespace DormitoryManagementSystem.ViewModels
 
             var rooms = await _db.Rooms
                 .Include(r => r.Places)
-                .Where(r => r.Places.Any(p => p.RoomNumber == null)) // Є вільні місця
+                .Where(r => r.Places.Any(p => p.PlaceNumber == null)) // Є вільні місця
                 .Select(r => new RoomDto
                 {
                     Id = r.Id,
                     Name = r.Name,
                     Floor = r.Floor,
                     PlacesCount = r.PlacesCount,
-                    OccupiedCount = r.Places.Count(p => p.RoomNumber != null),
-                    DisplayName = $"{r.Name} (поверх {r.Floor}) — {r.Places.Count(p => p.RoomNumber != null)}/{r.PlacesCount}"
+                    OccupiedCount = r.Places.Count(p => p.PlaceNumber != null),
+                    DisplayName = $"{r.Name} (поверх {r.Floor}) — {r.Places.Count(p => p.PlaceNumber != null)}/{r.PlacesCount}"
                 })
                 .ToListAsync();
 
@@ -91,7 +91,7 @@ namespace DormitoryManagementSystem.ViewModels
             AvailablePlaces.Clear();
 
             var places = await _db.RoomPlaces
-                .Where(rp => rp.RoomId == roomId && rp.RoomNumber == null)
+                .Where(rp => rp.RoomId == roomId && rp.PlaceNumber == null)
                 .Select(rp => new RoomPlaceDto
                 {
                     Id = rp.Id,
@@ -178,7 +178,7 @@ namespace DormitoryManagementSystem.ViewModels
 
             // Визначити номер місця
             var occupiedCount = await _db.RoomPlaces
-                .Where(rp => rp.RoomId == SelectedRoom.Id && rp.RoomNumber != null)
+                .Where(rp => rp.RoomId == SelectedRoom.Id && rp.PlaceNumber != null)
                 .CountAsync();
 
             int newRoomNumber = occupiedCount + 1;
@@ -206,7 +206,7 @@ namespace DormitoryManagementSystem.ViewModels
             var roomPlace = await _db.RoomPlaces.FindAsync(SelectedPlace.Id);
             if (roomPlace != null)
             {
-                roomPlace.RoomNumber = newRoomNumber;
+                roomPlace.PlaceNumber = newRoomNumber;
             }
 
             await _db.SaveChangesAsync();
