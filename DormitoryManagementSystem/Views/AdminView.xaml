@@ -40,6 +40,10 @@
                    VerticalAlignment="Center"
                    ItemHeight="40"
                    ItemWidth="140">
+            
+            <Button Style="{StaticResource NavButtonStyle}"
+                    Content="Заселення"
+                    Command="{Binding OpenSettlementCommand}"/>
 
             <Button Style="{StaticResource NavButtonStyle}"
                     Content="Адмін: звернення"
