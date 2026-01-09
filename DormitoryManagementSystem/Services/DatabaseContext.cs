@@ -45,6 +45,9 @@ namespace DormitoryManagementSystem.Services
             modelBuilder.Entity<ShowerReservation>()
                 .HasIndex(r => new { r.UserId, r.SlotId })
                 .IsUnique(); // один користувач — один слот
+            modelBuilder.Entity<UserInfo>()
+                .Property(u => u.IsDeleted)
+                .HasDefaultValue(false);
             // Факультети
             modelBuilder.Entity<Faculty>().HasData(
                 new Faculty { Id = 1, Name = "Факультет бізнесу та сфери обслуговування" },
