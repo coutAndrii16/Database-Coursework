@@ -33,7 +33,9 @@
                    HorizontalAlignment="Center"
                    VerticalAlignment ="Center"
                    Margin="0,100,0,0"/>
-
+        <Button Style="{StaticResource NavButtonStyle}"
+                Content="🔍 Пошук мешканця"
+                Command="{Binding OpenSearchCommand}"/>
         <!-- Рядок 1: кнопка “Адмін: звернення” -->
         <WrapPanel Grid.Row="1"
                    HorizontalAlignment="Center"

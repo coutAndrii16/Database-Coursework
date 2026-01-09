@@ -61,7 +61,21 @@
                    VerticalAlignment="Center"/>
     </StackPanel>
         </Border>
-
+        <!-- Сповіщення про виселення -->
+        <Border Grid.Row="0"
+                Background="#FFFFE6E6"
+                BorderBrush="#FFD32F2F"
+                BorderThickness="2"
+                CornerRadius="8"
+                Padding="12"
+                Margin="0,0,0,10"
+                Visibility="{Binding EvictionMessageVisibility}">
+            <TextBlock Text="{Binding EvictionMessage}"
+                       FontSize="16"
+                       FontWeight="SemiBold"
+                       Foreground="#FFD32F2F"
+                       TextWrapping="Wrap"/>
+        </Border>
 
         <!-- Головне меню кнопок -->
         <WrapPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 0 0 10" ItemHeight="40" ItemWidth="140">

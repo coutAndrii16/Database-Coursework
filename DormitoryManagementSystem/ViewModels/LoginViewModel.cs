@@ -48,6 +48,9 @@ namespace DormitoryManagementSystem.ViewModels
 
             try
             {
+                // Спочатку блокуємо протерміновані акаунти
+                var evictionService = new EvictionService(new DatabaseContext());
+                await evictionService.BlockExpiredAccountsAsync();
                 // Перевіряємо доступність серверів
                 var (ztuAvailable, myAvailable) = await App.PingService.CheckServersAsync();
 
@@ -74,6 +77,22 @@ namespace DormitoryManagementSystem.ViewModels
                     {
                         MessageBox.Show("Невірний логін або пароль.");
                         return;
+                    }
+                    // Перевірка на блокування
+                    if (user.IsDeleted == true)
+                    {
+                        MessageBox.Show("Ваш обліковий запис заблоковано через виселення.\nЗверніться до адміністрації гуртожитку.");
+                        return;
+                    }
+
+                    // Перевірка на виселення (ще не заблоковано)
+                    if (user.EvictionDate.HasValue && !user.IsLivingInDormitory)
+                    {
+                        var daysLeft = 7 - (DateTime.Now - user.EvictionDate.Value).Days;
+                        if (daysLeft > 0)
+                        {
+                            MessageBox.Show($"Увага! Ви виселені з гуртожитку.\nОбліковий запис буде заблоковано через {daysLeft} днів.");
+                        }
                     }
 
                     // Визначаємо, чи це адмін
@@ -123,8 +142,8 @@ namespace DormitoryManagementSystem.ViewModels
                 }
                 else
                 {
-                    // Якщо не адмін і не проживає — не пускаємо
-                    MessageBox.Show("Доступ заборонено. Ви не проживаєте у гуртожитку.");
+                    // Виселений, але ще може переглядати
+                    _mainWindow.NavigateTo(new ResidentView(_mainWindow, user));
 
                     Task.Delay(3000).ContinueWith(_ =>
                     {

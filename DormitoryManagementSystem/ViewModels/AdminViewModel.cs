@@ -26,6 +26,11 @@ namespace DormitoryManagementSystem.ViewModels
             _mainWindow = mainWindow;
             _currentUser = user;
         }
+        [RelayCommand]
+        private void OpenSearch()
+        {
+            _mainWindow.NavigateTo(new ResidentSearchView(_mainWindow, _currentUser));
+        }
         // Команда для виходу
         [RelayCommand]
         private void Logout()

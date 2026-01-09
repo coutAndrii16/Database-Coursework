@@ -20,6 +20,8 @@ namespace DormitoryManagementSystem.Services
         public DbSet<ShowerReservation> ShowerReservations { get; set; } = null!;
         public DbSet<ContactMessage> ContactMessages { get; set; }
 
+        public DbSet<EvictionNotification> EvictionNotifications { get; set; }
+
 
         public DatabaseContext() { }
             public DatabaseContext(DbContextOptions<DatabaseContext> options)

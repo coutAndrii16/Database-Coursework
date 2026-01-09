@@ -19,18 +19,28 @@ namespace DormitoryManagementSystem.ViewModels
         private readonly UserInfo _user;
         private readonly RoomService _roomService;
         private readonly AdminMessageService _adminMessageService;
+        private readonly EvictionService _evictionService;
+//        private readonly DatabaseContext _db;
+
+        //eviction
+        [ObservableProperty]
+        private string _evictionMessage = string.Empty;
+        
+        [ObservableProperty]
+        private Visibility _evictionMessageVisibility = Visibility.Collapsed;
 
 
-        public ResidentViewModel (MainWindow mainwindow, UserInfo user, RoomService roomService, AdminMessageService adminMessageService)
+        public ResidentViewModel (MainWindow mainwindow, UserInfo user, RoomService roomService, AdminMessageService adminMessageService, EvictionService evictionService)
         {
             _mainWindow = mainwindow;
             _roomService = roomService;
             _userId = user.Id;
             _adminMessageService = adminMessageService;
+            _evictionService = evictionService;
             welcomeText = $"Вітаємо, {user.FullName}!";
             _user = user ?? throw new ArgumentNullException(nameof(user));
             _ = RefreshAdminMessagesAsync();
-
+            _ = CheckEvictionNotificationAsync();
         }
         private async Task RefreshAdminMessagesAsync()
         {
@@ -139,6 +149,24 @@ namespace DormitoryManagementSystem.ViewModels
             OnPropertyChanged(nameof(ActiveAdminMessage));
             OnPropertyChanged(nameof(AdminMessageVisibility));
             OnPropertyChanged(nameof(AdminMessageContent));
+        }
+        private async Task CheckEvictionNotificationAsync()
+        {
+            var db = new DatabaseContext();
+            var evictionService = new EvictionService(db);
+            var notification = await evictionService.GetEvictionNotificationAsync(_userId);
+
+            if (notification != null)
+            {
+                var daysLeft = (notification.BlockDate - DateTime.Now).Days;
+                EvictionMessage = $"⚠️ Ви виселені! Причина: {notification.Reason}\n" +
+                                  $"Обліковий запис буде заблоковано через {daysLeft} днів " +
+                                  $"({notification.BlockDate:dd.MM.yyyy})";
+                EvictionMessageVisibility = Visibility.Visible;
+
+                // Позначити як прочитане
+                await evictionService.MarkAsReadAsync(notification.Id);
+            }
         }
     }
 }
