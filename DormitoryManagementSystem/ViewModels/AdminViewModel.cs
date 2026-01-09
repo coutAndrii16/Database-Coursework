@@ -49,5 +49,10 @@ namespace DormitoryManagementSystem.ViewModels
             // Завантажимо повідомлення відразу:
             await vm.LoadMessagesCommand.ExecuteAsync(null);
         }
+        [RelayCommand]
+        private void OpenSettlement()
+        {
+            _mainWindow.NavigateTo(new SettlementView(_mainWindow, _currentUser));
+        }
     }
 }

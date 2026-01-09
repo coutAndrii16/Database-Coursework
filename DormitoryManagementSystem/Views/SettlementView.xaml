@@ -1,0 +1,166 @@
+﻿<UserControl x:Class="DormitoryManagementSystem.Views.SettlementView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:DormitoryManagementSystem.Views"
+             mc:Ignorable="d"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Color="#E6F4EA" Offset="0" />
+            <GradientStop Color="#C7E6C9" Offset="1" />
+        </LinearGradientBrush>
+    </UserControl.Background>
+    
+    <Grid>
+         <Border CornerRadius="12"
+                Background="White"
+                Padding="30"
+                Margin="40"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                MaxWidth="700">
+            <Border.Effect>
+                <DropShadowEffect Color="#55000000"
+                                  BlurRadius="10"
+                                  ShadowDepth="3"
+                                  Opacity="0.2"/>
+            </Border.Effect>
+
+            <ScrollViewer VerticalScrollBarVisibility="Auto" MaxHeight="600">
+                <StackPanel>
+                    <TextBlock Text="Заселення мешканця"
+                               FontSize="26"
+                               FontWeight="Bold"
+                               Foreground="#2E2E2E"
+                               TextAlignment="Center"
+                               Margin="0,0,0,25"/>
+
+                    <!-- ПІБ -->
+                    <TextBlock Text="ПІБ *" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                    <TextBox Text="{Binding FullName, UpdateSourceTrigger=PropertyChanged}"
+                             Padding="8"
+                             BorderBrush="#A3C294"
+                             BorderThickness="1"
+                             Margin="0,0,0,15"/>
+
+                    <!-- Email -->
+                    <TextBlock Text="Email *" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                    <TextBox Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}"
+                             Padding="8"
+                             BorderBrush="#A3C294"
+                             BorderThickness="1"
+                             Margin="0,0,0,15"/>
+
+                    <!-- Пароль -->
+                    <TextBlock Text="Пароль *" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                    <PasswordBox x:Name="PasswordBox"
+                                 Padding="8"
+                                 BorderBrush="#A3C294"
+                                 BorderThickness="1"
+                                 Margin="0,0,0,15"
+                                 PasswordChanged="PasswordBox_PasswordChanged"/>
+
+                    <!-- Телефон -->
+                    <TextBlock Text="Телефон *" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                    <TextBox Text="{Binding PhoneNumber, UpdateSourceTrigger=PropertyChanged}"
+                             Padding="8"
+                             BorderBrush="#A3C294"
+                             BorderThickness="1"
+                             Margin="0,0,0,15"/>
+
+                    <!-- Стать -->
+                    <TextBlock Text="Стать *" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                    <ComboBox SelectedItem="{Binding Gender}"
+                              Padding="8"
+                              BorderBrush="#A3C294"
+                              BorderThickness="1"
+                              Margin="0,0,0,15">
+                        <ComboBoxItem Content="Чоловіча"/>
+                        <ComboBoxItem Content="Жіноча"/>
+                    </ComboBox>
+
+                    <!-- Факультет -->
+                    <TextBlock Text="Факультет *" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                    <ComboBox ItemsSource="{Binding Faculties}"
+                              SelectedItem="{Binding SelectedFaculty}"
+                              DisplayMemberPath="Name"
+                              Padding="8"
+                              BorderBrush="#A3C294"
+                              BorderThickness="1"
+                              Margin="0,0,0,15"/>
+
+                    <!-- Курс -->
+                    <TextBlock Text="Курс *" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                    <ComboBox SelectedItem="{Binding Course}"
+                              Padding="8"
+                              BorderBrush="#A3C294"
+                              BorderThickness="1"
+                              Margin="0,0,0,15">
+                        <ComboBoxItem Content="1"/>
+                        <ComboBoxItem Content="2"/>
+                        <ComboBoxItem Content="3"/>
+                        <ComboBoxItem Content="4"/>
+                        <ComboBoxItem Content="5"/>
+                        <ComboBoxItem Content="6"/>
+                    </ComboBox>
+
+                    <!-- Група -->
+                    <TextBlock Text="Група *" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                    <TextBox Text="{Binding Group, UpdateSourceTrigger=PropertyChanged}"
+                             Padding="8"
+                             BorderBrush="#A3C294"
+                             BorderThickness="1"
+                             Margin="0,0,0,15"/>
+
+                    <!-- Форма навчання -->
+                    <TextBlock Text="Форма навчання *" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                    <ComboBox SelectedItem="{Binding FormOfEducation}"
+                              Padding="8"
+                              BorderBrush="#A3C294"
+                              BorderThickness="1"
+                              Margin="0,0,0,15">
+                        <ComboBoxItem Content="Денна"/>
+                        <ComboBoxItem Content="Заочна"/>
+                    </ComboBox>
+
+                    <!-- Кімната -->
+                    <TextBlock Text="Кімната *" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                    <ComboBox ItemsSource="{Binding AvailableRooms}"
+                              SelectedItem="{Binding SelectedRoom}"
+                              DisplayMemberPath="DisplayName"
+                              Padding="8"
+                              BorderBrush="#A3C294"
+                              BorderThickness="1"
+                              Margin="0,0,0,15"/>
+
+                    <!-- Місце в кімнаті -->
+                    <TextBlock Text="Місце в кімнаті *" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                    <ComboBox ItemsSource="{Binding AvailablePlaces}"
+                              SelectedItem="{Binding SelectedPlace}"
+                              DisplayMemberPath="DisplayNumber"
+                              Padding="8"
+                              BorderBrush="#A3C294"
+                              BorderThickness="1"
+                              Margin="0,0,0,25"/>
+
+                    <!-- Кнопки -->
+                    <StackPanel Orientation="Horizontal" 
+                                HorizontalAlignment="Center">
+                        <Button Content="Заселити"
+                                Command="{Binding SettleCommand}"
+                                Style="{StaticResource NavButtonStyle}"
+                                Width="120"
+                                Margin="0,0,10,0"/>
+
+                        <Button Content="Скасувати"
+                                Command="{Binding BackCommand}"
+                                Style="{StaticResource LogoutButtonStyle}"
+                                Width="120"/>
+                    </StackPanel>
+                </StackPanel>
+            </ScrollViewer>
+        </Border>
+    </Grid>
+</UserControl>
