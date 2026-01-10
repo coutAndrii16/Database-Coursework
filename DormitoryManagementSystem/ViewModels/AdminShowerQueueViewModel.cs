@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using DormitoryManagementSystem.Models;
+using DormitoryManagementSystem.DTO;
 using DormitoryManagementSystem.Services;
 using DormitoryManagementSystem.Views;
 using Microsoft.EntityFrameworkCore;
@@ -152,21 +153,5 @@ namespace DormitoryManagementSystem.ViewModels
         {
             _mainWindow.NavigateTo(new AdminView(_mainWindow, _currentUser));
         }
-    }
-
-    // DTO класи
-    public class TimeSlotDto
-    {
-        public TimeSpan StartTime { get; set; }
-        public TimeSpan EndTime { get; set; }
-        public string TimeRange { get; set; } = string.Empty;
-    }
-
-    public class QueueItemDto
-    {
-        public int QueueNumber { get; set; }
-        public string UserName { get; set; } = string.Empty;
-        public string RoomInfo { get; set; } = string.Empty;
-        public string ReservationTime { get; set; } = string.Empty;
     }
 }
