@@ -189,11 +189,6 @@
                                             Binding="{Binding Email}" 
                                             Width="*"
                                             MinWidth="180"/>
-                        
-                        <DataGridTextColumn Header="Кімната" 
-                                            Binding="{Binding RoomInfo}" 
-                                            Width="100"/>
-                        
                         <DataGridTextColumn Header="Факультет" 
                                             Binding="{Binding Faculty.Name}" 
                                             Width="*"

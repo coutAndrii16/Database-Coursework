@@ -38,7 +38,7 @@ namespace DormitoryManagementSystem.Services
                 var roomPlace = await _db.RoomPlaces.FindAsync(user.RoomPlaceId);
                 if (roomPlace != null)
                 {
-                    roomPlace.PlaceNumber = null; // Звільнити місце
+                    roomPlace.IsBusy = false; // Звільнити місце
                 }
                 user.RoomPlaceId = null;
             }
