@@ -12,6 +12,7 @@ namespace DormitoryManagementSystem.Models
 
         public Room Room { get; set; }
         public int? PlaceNumber { get; set; }
+        public bool IsBusy { get; set; } = false;
 
         // Навігація до проживаючого (1:1)
         public UserInfo? Student { get; set; }

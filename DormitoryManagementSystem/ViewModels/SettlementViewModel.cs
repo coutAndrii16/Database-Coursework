@@ -66,7 +66,7 @@ namespace DormitoryManagementSystem.ViewModels
 
             var rooms = await _db.Rooms
                 .Include(r => r.Places)
-                .Where(r => r.Places.Any(p => p.PlaceNumber == null)) // Є вільні місця
+                .Where(r => r.Places.Any(p => p.IsBusy == false)) // Є вільні місця
                 .Select(r => new RoomDto
                 {
                     Id = r.Id,
@@ -93,12 +93,12 @@ namespace DormitoryManagementSystem.ViewModels
             AvailablePlaces.Clear();
 
             var places = await _db.RoomPlaces
-                .Where(rp => rp.RoomId == roomId && rp.PlaceNumber == null)
+                .Where(rp => rp.RoomId == roomId && rp.IsBusy == false)
                 .Select(rp => new RoomPlaceDto
                 {
                     Id = rp.Id,
                     RoomId = rp.RoomId,
-                    DisplayNumber = $"Місце #{rp.Id}"
+                    DisplayNumber = $"Місце #{rp.PlaceNumber}"
                 })
                 .ToListAsync();
 
@@ -183,7 +183,7 @@ namespace DormitoryManagementSystem.ViewModels
                 .Where(rp => rp.RoomId == SelectedRoom.Id && rp.PlaceNumber != null)
                 .CountAsync();
 
-            int newRoomNumber = occupiedCount + 1;
+            int newRoomNumber = occupiedCount; //інколи непотрібно +1 тому що місце може бути не послідовним
 
             // Створити користувача
             var newUser = new UserInfo
@@ -208,13 +208,37 @@ namespace DormitoryManagementSystem.ViewModels
             var roomPlace = await _db.RoomPlaces.FindAsync(SelectedPlace.Id);
             if (roomPlace != null)
             {
-                roomPlace.PlaceNumber = newRoomNumber;
+                roomPlace.PlaceNumber = newRoomNumber; //про місце
+                roomPlace.IsBusy = true;
             }
 
             await _db.SaveChangesAsync();
 
             MessageBox.Show($"Мешканця {FullName} успішно заселено!\nКімната: {SelectedRoom.Name}, місце №{newRoomNumber}");
+            ClearFormCommand.Execute(null);
+        }
 
+        [RelayCommand]
+        private void ClearForm()
+        {
+            // Текстові поля
+            FullName = string.Empty;
+            Email = string.Empty;
+            Password = string.Empty;
+            PhoneNumber = string.Empty;
+            Gender = string.Empty;
+            Group = string.Empty;
+            FormOfEducation = string.Empty;
+
+            // Вибрані об'єкти
+            SelectedFaculty = null;
+            SelectedRoom = null;
+            SelectedPlace = null;
+            Course = null;
+
+            // Очищення доступних кімнат/місць
+            AvailableRooms.Clear();
+            AvailablePlaces.Clear();
         }
 
         [RelayCommand]
