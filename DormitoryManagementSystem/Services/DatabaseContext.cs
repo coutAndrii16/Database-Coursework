@@ -103,8 +103,8 @@ namespace DormitoryManagementSystem.Services
                 new RoomPlace { Id = 3, RoomId = 2, PlaceNumber = 1},
                 new RoomPlace { Id = 4, RoomId = 2, PlaceNumber = 2},
                 new RoomPlace { Id = 5, RoomId = 2},
-                new RoomPlace { Id = 6, RoomId = 2},
-                new RoomPlace { Id = 7, RoomId = 3},
+                new RoomPlace { Id = 6, RoomId = 2, PlaceNumber = 4},
+                new RoomPlace { Id = 7, RoomId = 3, PlaceNumber = 2},
                 new RoomPlace { Id = 8, RoomId = 3}
             );
 
