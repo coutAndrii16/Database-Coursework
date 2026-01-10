@@ -65,5 +65,10 @@ namespace DormitoryManagementSystem.ViewModels
         {
             _mainWindow.NavigateTo(new AdminShowerQueueView(_mainWindow, _currentUser));
         }
+        [RelayCommand]
+        private void OpenMessageManagement()
+        {
+            _mainWindow.NavigateTo(new AdminMessageView(_mainWindow, _currentUser));
+        }
     }
 }

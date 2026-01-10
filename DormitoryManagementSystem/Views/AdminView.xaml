@@ -48,12 +48,16 @@
                     Command="{Binding OpenSettlementCommand}"/>
 
             <Button Style="{StaticResource NavButtonStyle}"
-                    Content="Звернення"
+                    Content="Звернення резидентів"
                     Command="{Binding OpenAdminContactsCommand}"/>
             
             <Button Style="{StaticResource NavButtonStyle}"
-                    Content="🚿 Черги в душ"
+                    Content="Черги в душ"
                     Command="{Binding OpenShowerQueueCommand}"/>
+            
+            <Button Style="{StaticResource NavButtonStyle}"
+                    Content="Написати оголошення"
+                    Command="{Binding OpenMessageManagementCommand}"/>
         </WrapPanel>
         <!-- Кнопка Вийти -->
         <WrapPanel Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,40,0,10">
