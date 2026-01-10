@@ -26,18 +26,18 @@
         </Grid.RowDefinitions>
 
         <!-- Рядок 0: вітальний текст -->
-        <TextBlock Grid.Row="0"
+        <TextBlock Grid.Row="1"
                    Text="{Binding WelcomeText}"
                    FontSize="24"
                    FontWeight="Bold"
                    HorizontalAlignment="Center"
                    VerticalAlignment ="Center"
-                   Margin="0,100,0,0"/>
-        <Button Style="{StaticResource NavButtonStyle}"
+                   Margin="0,100,0,100"/>
+        <Button Grid.Row="0" Style="{StaticResource NavButtonStyle}"
                 Content="🔍 Пошук мешканця"
                 Command="{Binding OpenSearchCommand}"/>
-        <!-- Рядок 1: кнопка “Адмін: звернення” -->
-        <WrapPanel Grid.Row="1"
+        <!-- Рядок 1: кнопка “Звернення” -->
+        <WrapPanel Grid.Row="2"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
                    ItemHeight="40"
@@ -48,11 +48,15 @@
                     Command="{Binding OpenSettlementCommand}"/>
 
             <Button Style="{StaticResource NavButtonStyle}"
-                    Content="Адмін: звернення"
+                    Content="Звернення"
                     Command="{Binding OpenAdminContactsCommand}"/>
+            
+            <Button Style="{StaticResource NavButtonStyle}"
+                    Content="🚿 Черги в душ"
+                    Command="{Binding OpenShowerQueueCommand}"/>
         </WrapPanel>
         <!-- Кнопка Вийти -->
-        <WrapPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,40,0,10">
+        <WrapPanel Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,40,0,10">
             <Button Style="{StaticResource LogoutButtonStyle}" Content="Вийти" Command="{Binding LogoutCommand}" Width="140" Height="40" />
         </WrapPanel>
 
