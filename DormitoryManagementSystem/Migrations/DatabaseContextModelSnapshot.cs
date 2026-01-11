@@ -48,7 +48,7 @@ namespace DormitoryManagementSystem.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("AdminMessages");
+                    b.ToTable("AdminMessages", (string)null);
 
                     b.HasData(
                         new
@@ -86,7 +86,7 @@ namespace DormitoryManagementSystem.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("ContactMessages");
+                    b.ToTable("ContactMessages", (string)null);
                 });
 
             modelBuilder.Entity("DormitoryManagementSystem.Models.Dormitory", b =>
@@ -103,7 +103,7 @@ namespace DormitoryManagementSystem.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Dormitories");
+                    b.ToTable("Dormitories", (string)null);
 
                     b.HasData(
                         new
@@ -111,30 +111,6 @@ namespace DormitoryManagementSystem.Migrations
                             Id = 1,
                             Name = "Гуртожиток №1"
                         });
-                });
-
-            modelBuilder.Entity("DormitoryManagementSystem.Models.EvictionHistory", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("EvictionDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int?>("OldRoomPlaceId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("EvictionHistories");
                 });
 
             modelBuilder.Entity("DormitoryManagementSystem.Models.EvictionNotification", b =>
@@ -165,7 +141,7 @@ namespace DormitoryManagementSystem.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("EvictionNotifications");
+                    b.ToTable("EvictionNotifications", (string)null);
                 });
 
             modelBuilder.Entity("DormitoryManagementSystem.Models.Faculty", b =>
@@ -182,7 +158,7 @@ namespace DormitoryManagementSystem.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Faculties");
+                    b.ToTable("Faculties", (string)null);
 
                     b.HasData(
                         new
@@ -245,7 +221,7 @@ namespace DormitoryManagementSystem.Migrations
 
                     b.HasIndex("DormitoryId");
 
-                    b.ToTable("Rooms");
+                    b.ToTable("Rooms", (string)null);
 
                     b.HasData(
                         new
@@ -298,7 +274,7 @@ namespace DormitoryManagementSystem.Migrations
 
                     b.HasIndex("RoomId");
 
-                    b.ToTable("RoomPlaces");
+                    b.ToTable("RoomPlaces", (string)null);
 
                     b.HasData(
                         new
@@ -381,7 +357,7 @@ namespace DormitoryManagementSystem.Migrations
                     b.HasIndex("UserId", "SlotId")
                         .IsUnique();
 
-                    b.ToTable("ShowerReservations");
+                    b.ToTable("ShowerReservations", (string)null);
                 });
 
             modelBuilder.Entity("DormitoryManagementSystem.Models.ShowerSlot", b =>
@@ -410,7 +386,7 @@ namespace DormitoryManagementSystem.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ShowerSlots");
+                    b.ToTable("ShowerSlots", (string)null);
                 });
 
             modelBuilder.Entity("DormitoryManagementSystem.Models.UserInfo", b =>
@@ -482,7 +458,7 @@ namespace DormitoryManagementSystem.Migrations
                         .IsUnique()
                         .HasFilter("[RoomPlaceId] IS NOT NULL");
 
-                    b.ToTable("Users");
+                    b.ToTable("Users", (string)null);
 
                     b.HasData(
                         new
@@ -571,17 +547,6 @@ namespace DormitoryManagementSystem.Migrations
                     b.HasOne("DormitoryManagementSystem.Models.UserInfo", "User")
                         .WithMany()
                         .HasForeignKey("UserId");
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("DormitoryManagementSystem.Models.EvictionHistory", b =>
-                {
-                    b.HasOne("DormitoryManagementSystem.Models.UserInfo", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
 
                     b.Navigation("User");
                 });
