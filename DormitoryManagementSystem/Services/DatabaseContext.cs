@@ -21,6 +21,7 @@ namespace DormitoryManagementSystem.Services
         public DbSet<ContactMessage> ContactMessages { get; set; }
 
         public DbSet<EvictionNotification> EvictionNotifications { get; set; }
+        public DbSet<EvictionHistory> EvictionHistories { get; set; }
 
 
         public DatabaseContext() { }
