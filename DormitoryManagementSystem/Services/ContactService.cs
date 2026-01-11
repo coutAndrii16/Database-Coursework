@@ -26,6 +26,8 @@ namespace DormitoryManagementSystem.Services
         public async Task<List<ContactMessage>> GetAllAsync()
             => await _db.ContactMessages
                         .Include(m => m.User)
+                        .ThenInclude(u => u.RoomPlace)
+                        .ThenInclude(rp => rp.Room)
                         .OrderByDescending(m => m.CreatedAt)
                         .ToListAsync();
 

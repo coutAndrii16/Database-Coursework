@@ -61,6 +61,10 @@
                 <DataGridCheckBoxColumn Header="Анонім" 
                                  Binding="{Binding UserId, Converter={StaticResource NullToBoolConverter}}"
                                  Width="60"/>
+                <!-- Кімната користувача -->
+                <DataGridTextColumn Header="Кімната" 
+                                    Binding="{Binding RoomInfo}" 
+                                    Width="100"/>
 
                 <!-- Прочитано: галочка, якщо IsRead == true -->
                 <DataGridCheckBoxColumn Header="Прочитано"

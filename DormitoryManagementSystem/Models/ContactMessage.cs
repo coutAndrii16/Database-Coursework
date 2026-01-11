@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DormitoryManagementSystem.Models
 {
@@ -16,6 +17,10 @@ namespace DormitoryManagementSystem.Models
 
         // навігація, якщо треба (для юзер імені)
         public UserInfo? User { get; set; }
+        [NotMapped]
+        public string RoomInfo => User?.RoomPlace?.Room != null
+            ? $"{User.RoomPlace.Room.Name} ({User.RoomPlace.PlaceNumber})"
+            : "—";
     }
 
 }
