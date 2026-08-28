@@ -21,7 +21,6 @@ namespace DormitoryManagementSystem.Services
         public DbSet<ContactMessage> ContactMessages { get; set; }
 
         public DbSet<EvictionNotification> EvictionNotifications { get; set; }
-        public DbSet<EvictionHistory> EvictionHistories { get; set; }
 
 
         public DatabaseContext() { }
@@ -95,6 +94,24 @@ namespace DormitoryManagementSystem.Services
                     PlacesCount = 2,
                     DormitoryId = 1,
                     Comments = "Тестова кімната 3"
+                },
+                new Room
+                {
+                    Id = 4,
+                    Name = "42/1",
+                    Floor = 4,
+                    PlacesCount = 4,
+                    DormitoryId = 1,
+                    Comments = "Тестова кімната 4"
+                },
+                new Room
+                {
+                    Id = 5,
+                    Name = "42/2",
+                    Floor = 4,
+                    PlacesCount = 2,
+                    DormitoryId = 1,
+                    Comments = "Тестова кімната 5"
                 });
 
             // Місця
@@ -106,8 +123,14 @@ namespace DormitoryManagementSystem.Services
                 new RoomPlace { Id = 5, RoomId = 2},
                 new RoomPlace { Id = 6, RoomId = 2, PlaceNumber = 4},
                 new RoomPlace { Id = 7, RoomId = 3, PlaceNumber = 2},
-                new RoomPlace { Id = 8, RoomId = 3}
-            );
+                new RoomPlace { Id = 8, RoomId = 3},
+                new RoomPlace { Id = 9, RoomId = 4},
+                new RoomPlace { Id = 10, RoomId = 4},
+                new RoomPlace { Id = 11, RoomId = 4},
+                new RoomPlace { Id = 12, RoomId = 4},
+                new RoomPlace { Id = 13, RoomId = 5},
+                new RoomPlace { Id = 14, RoomId = 5}
+                );
 
             // Адмін
             modelBuilder.Entity<UserInfo>().HasData(new UserInfo
@@ -213,7 +236,7 @@ namespace DormitoryManagementSystem.Services
             // Підстав своє ім'я сервера та бази
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=DormitoryDB;Trusted_Connection=True; TrustServerCertificate=True;");
+                optionsBuilder.UseSqlServer("Server=localhost;Database=DormitoryDB;Trusted_Connection=True; TrustServerCertificate=True;");
             }
             }
     }
